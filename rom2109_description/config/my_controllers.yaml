@@ -18,7 +18,7 @@ diff_cont:
 
     left_wheel_names: ['left_wheel_joint']
     right_wheel_names: ['right_wheel_joint']
-    wheel_separation: 0.1970 # tf echo between left wheel and right wheel
+    wheel_separation: 0.255208886 # tf echo between left wheel and right wheel. အစဥ်မပြေ
     wheel_radius: 0.0500     # solidwork wheel diameter is 0.1 m
 
     # အထက်ပါတွက်ချက်မှုအရ robot သည် 
@@ -28,9 +28,14 @@ diff_cont:
     # open_loop: false    wheel_separation: 0.1966
 
     # wheels_per_side: x
-    wheel_separation_multiplier: 0.937717806
+    wheel_separation_multiplier: 1.0000  # ဒါကသိပ်မထူးဘူး။ မူလ source code မှာ ယူမထားတာ ဒါမှမဟုတ် နဲနဲပဲယူထားတာဖြစ်နိုင်တယ်။ 
     left_wheel_radius_multiplier: 0.986096046
     right_wheel_radius_multiplier: 0.98804466
+
+    odom_frame_id: odom
+    enable_odom_tf: true
+    pose_covariance_diagonal : [0.001, 0.001, 0.001, 0.001, 0.001, 0.01]
+    twist_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.01]
 
     # odom_frame_id: x
     # pose_covariance_diagonal: x

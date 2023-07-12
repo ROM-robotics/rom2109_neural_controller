@@ -7,9 +7,6 @@ Panels:
         - /Global Options1
         - /TF1
         - /TF1/Frames1
-        - /TF1/Tree1/odom1
-        - /TF1/Tree1/odom1/base_footprint1
-        - /TF1/Tree1/odom1/base_footprint1/base_link1
         - /LaserScan1/Topic1
       Splitter Ratio: 0.699999988079071
     Tree Height: 719
@@ -86,7 +83,7 @@ Visualization Manager:
         base_footprint:
           Value: true
         base_link:
-          Value: true
+          Value: false
         camera:
           Value: false
         camera_link_optical:

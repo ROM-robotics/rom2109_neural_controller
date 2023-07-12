@@ -16,8 +16,9 @@ def generate_launch_description():
     default_world_path = os.path.join(gazebo_pkg, 'worlds', 'cafe.world')
 
     urdf_file = os.path.join(description_pkg,'urdf', 'urdf.urdf')
-    # robot_description_config = xacro.process_file(xacro_file)
-    # my_xml = robot_description_config.toxml()
+    xacro_file = os.path.join(description_pkg,'urdf', 'robot_sim_ros2_control.urdf.xacro')
+    robot_description_config = xacro.process_file(xacro_file)
+    my_xml = robot_description_config.toxml()
 
     bot = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
@@ -55,12 +56,10 @@ def generate_launch_description():
     spawn_robot_node = Node(
         package='gazebo_ros',
         executable='spawn_entity.py',
-        # arguments=['-database', 'rom2109_tall_ros', '-entity', 'rom2109_tall_ros',
-        arguments=['-file', urdf_file, '-entity', 'rom2109_tall_ros',
-                   "-x", '0.0',
-                   "-y", '0.0',
-                   "-z", '0.3'],
-        output='screen'
+        # arguments=['-database', 'rom2109_tall_ros', '-entity', 'rom2109_tall_ros'],
+        # arguments=['-file', my_xml, '-entity', 'rom2109_tall_ros', "-x", '0.0', "-y", '0.0', "-z", '0.3'],
+        arguments=['-topic', 'robot_description', '-entity', 'rom2109_tall_ros']
+        output='screen',
     )
 
     return LaunchDescription(
